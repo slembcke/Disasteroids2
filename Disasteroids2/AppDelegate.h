@@ -1,15 +1,28 @@
 //
 //  AppDelegate.h
-//  Disasteroids2
+//  ___PROJECTNAME___
 //
-//  Created by Scott Lembcke on 10/17/13.
-//  Copyright (c) 2013 Cocos2D. All rights reserved.
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+// Added only for iOS 6 support
+@interface MyNavigationController : UINavigationController <CCDirectorDelegate>
+@end
 
-@property (strong, nonatomic) UIWindow *window;
+@interface AppController : NSObject <UIApplicationDelegate>
+{
+	UIWindow *window_;
+	MyNavigationController *navController_;
+
+	CCDirectorIOS	*director_;							// weak ref
+}
+
+@property (nonatomic, retain) UIWindow *window;
+@property (readonly) MyNavigationController *navController;
+@property (readonly) CCDirectorIOS *director;
 
 @end

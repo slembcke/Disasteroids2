@@ -13,19 +13,51 @@
 		D30E347218107B86009684D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D30E347018107B86009684D1 /* InfoPlist.strings */; };
 		D30E347418107B86009684D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E347318107B86009684D1 /* main.m */; };
 		D30E347818107B86009684D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E347718107B86009684D1 /* AppDelegate.m */; };
-		D30E347A18107B86009684D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30E347918107B86009684D1 /* Images.xcassets */; };
-		D30E348118107B86009684D1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30E348018107B86009684D1 /* XCTest.framework */; };
-		D30E348218107B86009684D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30E346718107B86009684D1 /* Foundation.framework */; };
-		D30E348318107B86009684D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30E346B18107B86009684D1 /* UIKit.framework */; };
+		D395DD851810AAA100968824 /* Asteroid.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD801810AAA100968824 /* Asteroid.png */; };
+		D395DD861810AAA100968824 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD811810AAA100968824 /* Bullet.png */; };
+		D395DD871810AAA100968824 /* Shield.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD821810AAA100968824 /* Shield.png */; };
+		D395DD881810AAA100968824 /* Ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD831810AAA100968824 /* Ship1.png */; };
+		D395DD891810AAA100968824 /* Ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD841810AAA100968824 /* Ship2.png */; };
+		D3EDE7F018107EC200E4045F /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDE7E918107E6100E4045F /* libcocos2d.a */; };
+		D3EDE7F6181080F800E4045F /* DisasteroidsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */; };
+		D3EDE7F8181081C200E4045F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDE7F7181081C200E4045F /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D30E348418107B86009684D1 /* PBXContainerItemProxy */ = {
+		D3EDE7E618107E6100E4045F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D30E345C18107B86009684D1 /* Project object */;
+			containerPortal = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 509807081175041800EA7266;
+			remoteInfo = "build all libs";
+		};
+		D3EDE7E818107E6100E4045F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5018F24D0DFDEAC400C013A5;
+			remoteInfo = cocos2d;
+		};
+		D3EDE7EA18107E6100E4045F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 502C65EE0DFEF3DD00E4107D;
+			remoteInfo = "cocos2d-documentation";
+		};
+		D3EDE7EC18107E6100E4045F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A04A1FEB13B826B300ABAFB7;
+			remoteInfo = kazmath;
+		};
+		D3EDE7EE18107E8500E4045F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D30E346318107B86009684D1;
-			remoteInfo = Disasteroids2;
+			remoteGlobalIDString = 5018F24C0DFDEAC400C013A5;
+			remoteInfo = cocos2d;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,9 +72,16 @@
 		D30E347518107B86009684D1 /* Disasteroids2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Disasteroids2-Prefix.pch"; sourceTree = "<group>"; };
 		D30E347618107B86009684D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D30E347718107B86009684D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D30E347918107B86009684D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D30E347F18107B86009684D1 /* Disasteroids2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Disasteroids2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30E348018107B86009684D1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D395DD801810AAA100968824 /* Asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Asteroid.png; sourceTree = "<group>"; };
+		D395DD811810AAA100968824 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
+		D395DD821810AAA100968824 /* Shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shield.png; sourceTree = "<group>"; };
+		D395DD831810AAA100968824 /* Ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship1.png; sourceTree = "<group>"; };
+		D395DD841810AAA100968824 /* Ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship2.png; sourceTree = "<group>"; };
+		D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "../cocos2d-iphone/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
+		D3EDE7F4181080F800E4045F /* DisasteroidsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisasteroidsLayer.h; sourceTree = "<group>"; };
+		D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisasteroidsLayer.m; sourceTree = "<group>"; };
+		D3EDE7F7181081C200E4045F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,19 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EDE7F8181081C200E4045F /* libz.dylib in Frameworks */,
+				D3EDE7F018107EC200E4045F /* libcocos2d.a in Frameworks */,
 				D30E346A18107B86009684D1 /* CoreGraphics.framework in Frameworks */,
 				D30E346C18107B86009684D1 /* UIKit.framework in Frameworks */,
 				D30E346818107B86009684D1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D30E347C18107B86009684D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D30E348118107B86009684D1 /* XCTest.framework in Frameworks */,
-				D30E348318107B86009684D1 /* UIKit.framework in Frameworks */,
-				D30E348218107B86009684D1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +103,7 @@
 		D30E345B18107B86009684D1 = {
 			isa = PBXGroup;
 			children = (
+				D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */,
 				D30E346D18107B86009684D1 /* Disasteroids2 */,
 				D30E346618107B86009684D1 /* Frameworks */,
 				D30E346518107B86009684D1 /* Products */,
@@ -82,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				D30E346418107B86009684D1 /* Disasteroids2.app */,
-				D30E347F18107B86009684D1 /* Disasteroids2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +121,7 @@
 		D30E346618107B86009684D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3EDE7F7181081C200E4045F /* libz.dylib */,
 				D30E346718107B86009684D1 /* Foundation.framework */,
 				D30E346918107B86009684D1 /* CoreGraphics.framework */,
 				D30E346B18107B86009684D1 /* UIKit.framework */,
@@ -103,7 +135,13 @@
 			children = (
 				D30E347618107B86009684D1 /* AppDelegate.h */,
 				D30E347718107B86009684D1 /* AppDelegate.m */,
-				D30E347918107B86009684D1 /* Images.xcassets */,
+				D3EDE7F4181080F800E4045F /* DisasteroidsLayer.h */,
+				D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */,
+				D395DD801810AAA100968824 /* Asteroid.png */,
+				D395DD811810AAA100968824 /* Bullet.png */,
+				D395DD821810AAA100968824 /* Shield.png */,
+				D395DD831810AAA100968824 /* Ship1.png */,
+				D395DD841810AAA100968824 /* Ship2.png */,
 				D30E346E18107B86009684D1 /* Supporting Files */,
 			);
 			path = Disasteroids2;
@@ -120,6 +158,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D3EDE7DF18107E6000E4045F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDE7E718107E6100E4045F /* libbuild all libs.a */,
+				D3EDE7E918107E6100E4045F /* libcocos2d.a */,
+				D3EDE7EB18107E6100E4045F /* libcocos2d-documentation.a */,
+				D3EDE7ED18107E6100E4045F /* libkazmath.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,29 +183,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				D3EDE7EF18107E8500E4045F /* PBXTargetDependency */,
 			);
 			name = Disasteroids2;
 			productName = Disasteroids2;
 			productReference = D30E346418107B86009684D1 /* Disasteroids2.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D30E347E18107B86009684D1 /* Disasteroids2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D30E349318107B86009684D1 /* Build configuration list for PBXNativeTarget "Disasteroids2Tests" */;
-			buildPhases = (
-				D30E347B18107B86009684D1 /* Sources */,
-				D30E347C18107B86009684D1 /* Frameworks */,
-				D30E347D18107B86009684D1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D30E348518107B86009684D1 /* PBXTargetDependency */,
-			);
-			name = Disasteroids2Tests;
-			productName = Disasteroids2Tests;
-			productReference = D30E347F18107B86009684D1 /* Disasteroids2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,11 +198,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Cocos2D;
-				TargetAttributes = {
-					D30E347E18107B86009684D1 = {
-						TestTargetID = D30E346318107B86009684D1;
-					};
-				};
 			};
 			buildConfigurationList = D30E345F18107B86009684D1 /* Build configuration list for PBXProject "Disasteroids2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -182,28 +209,61 @@
 			mainGroup = D30E345B18107B86009684D1;
 			productRefGroup = D30E346518107B86009684D1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D3EDE7DF18107E6000E4045F /* Products */;
+					ProjectRef = D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D30E346318107B86009684D1 /* Disasteroids2 */,
-				D30E347E18107B86009684D1 /* Disasteroids2Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D3EDE7E718107E6100E4045F /* libbuild all libs.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libbuild all libs.a";
+			remoteRef = D3EDE7E618107E6100E4045F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3EDE7E918107E6100E4045F /* libcocos2d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2d.a;
+			remoteRef = D3EDE7E818107E6100E4045F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3EDE7EB18107E6100E4045F /* libcocos2d-documentation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-documentation.a";
+			remoteRef = D3EDE7EA18107E6100E4045F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3EDE7ED18107E6100E4045F /* libkazmath.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libkazmath.a;
+			remoteRef = D3EDE7EC18107E6100E4045F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D30E346218107B86009684D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D395DD851810AAA100968824 /* Asteroid.png in Resources */,
+				D395DD861810AAA100968824 /* Bullet.png in Resources */,
+				D395DD891810AAA100968824 /* Ship2.png in Resources */,
+				D395DD871810AAA100968824 /* Shield.png in Resources */,
+				D395DD881810AAA100968824 /* Ship1.png in Resources */,
 				D30E347218107B86009684D1 /* InfoPlist.strings in Resources */,
-				D30E347A18107B86009684D1 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D30E347D18107B86009684D1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,25 +274,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EDE7F6181080F800E4045F /* DisasteroidsLayer.m in Sources */,
 				D30E347818107B86009684D1 /* AppDelegate.m in Sources */,
 				D30E347418107B86009684D1 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D30E347B18107B86009684D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D30E348518107B86009684D1 /* PBXTargetDependency */ = {
+		D3EDE7EF18107E8500E4045F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D30E346318107B86009684D1 /* Disasteroids2 */;
-			targetProxy = D30E348418107B86009684D1 /* PBXContainerItemProxy */;
+			name = cocos2d;
+			targetProxy = D3EDE7EE18107E8500E4045F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -281,6 +335,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/../cocos2d-iphone/cocos2d\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/kazmath/include\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/Chipmunk/objectivec/include\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/Chipmunk/include\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -315,6 +377,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/../cocos2d-iphone/cocos2d\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/kazmath/include\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/Chipmunk/objectivec/include\"",
+					"\"$(SRCROOT)/../cocos2d-iphone/external/Chipmunk/include\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -330,6 +400,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disasteroids2/Disasteroids2-Prefix.pch";
 				INFOPLIST_FILE = "Disasteroids2/Disasteroids2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -343,50 +414,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disasteroids2/Disasteroids2-Prefix.pch";
 				INFOPLIST_FILE = "Disasteroids2/Disasteroids2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D30E349418107B86009684D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Disasteroids2.app/Disasteroids2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Disasteroids2/Disasteroids2-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Disasteroids2Tests/Disasteroids2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D30E349518107B86009684D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Disasteroids2.app/Disasteroids2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Disasteroids2/Disasteroids2-Prefix.pch";
-				INFOPLIST_FILE = "Disasteroids2Tests/Disasteroids2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -407,15 +437,6 @@
 			buildConfigurations = (
 				D30E349118107B86009684D1 /* Debug */,
 				D30E349218107B86009684D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D30E349318107B86009684D1 /* Build configuration list for PBXNativeTarget "Disasteroids2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D30E349418107B86009684D1 /* Debug */,
-				D30E349518107B86009684D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
