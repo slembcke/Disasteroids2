@@ -13,13 +13,14 @@
 		D30E347218107B86009684D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D30E347018107B86009684D1 /* InfoPlist.strings */; };
 		D30E347418107B86009684D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E347318107B86009684D1 /* main.m */; };
 		D30E347818107B86009684D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E347718107B86009684D1 /* AppDelegate.m */; };
+		D37127281811CE550025DD8C /* BugScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D37127271811CE550025DD8C /* BugScene.m */; };
 		D395DD851810AAA100968824 /* Asteroid.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD801810AAA100968824 /* Asteroid.png */; };
 		D395DD861810AAA100968824 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD811810AAA100968824 /* Bullet.png */; };
 		D395DD871810AAA100968824 /* Shield.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD821810AAA100968824 /* Shield.png */; };
 		D395DD881810AAA100968824 /* Ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD831810AAA100968824 /* Ship1.png */; };
 		D395DD891810AAA100968824 /* Ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = D395DD841810AAA100968824 /* Ship2.png */; };
 		D3EDE7F018107EC200E4045F /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDE7E918107E6100E4045F /* libcocos2d.a */; };
-		D3EDE7F6181080F800E4045F /* DisasteroidsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */; };
+		D3EDE7F6181080F800E4045F /* DisasteroidsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDE7F5181080F800E4045F /* DisasteroidsScene.m */; };
 		D3EDE7F8181081C200E4045F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDE7F7181081C200E4045F /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -73,14 +74,16 @@
 		D30E347618107B86009684D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D30E347718107B86009684D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D30E348018107B86009684D1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D37127261811CE550025DD8C /* BugScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugScene.h; sourceTree = "<group>"; };
+		D37127271811CE550025DD8C /* BugScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugScene.m; sourceTree = "<group>"; };
 		D395DD801810AAA100968824 /* Asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Asteroid.png; sourceTree = "<group>"; };
 		D395DD811810AAA100968824 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
 		D395DD821810AAA100968824 /* Shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shield.png; sourceTree = "<group>"; };
 		D395DD831810AAA100968824 /* Ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship1.png; sourceTree = "<group>"; };
 		D395DD841810AAA100968824 /* Ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship2.png; sourceTree = "<group>"; };
 		D3EDE7DE18107E6000E4045F /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "../cocos2d-iphone/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
-		D3EDE7F4181080F800E4045F /* DisasteroidsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisasteroidsLayer.h; sourceTree = "<group>"; };
-		D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisasteroidsLayer.m; sourceTree = "<group>"; };
+		D3EDE7F4181080F800E4045F /* DisasteroidsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisasteroidsScene.h; sourceTree = "<group>"; };
+		D3EDE7F5181080F800E4045F /* DisasteroidsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisasteroidsScene.m; sourceTree = "<group>"; };
 		D3EDE7F7181081C200E4045F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -135,14 +138,16 @@
 			children = (
 				D30E347618107B86009684D1 /* AppDelegate.h */,
 				D30E347718107B86009684D1 /* AppDelegate.m */,
-				D3EDE7F4181080F800E4045F /* DisasteroidsLayer.h */,
-				D3EDE7F5181080F800E4045F /* DisasteroidsLayer.m */,
+				D3EDE7F4181080F800E4045F /* DisasteroidsScene.h */,
+				D3EDE7F5181080F800E4045F /* DisasteroidsScene.m */,
 				D395DD801810AAA100968824 /* Asteroid.png */,
 				D395DD811810AAA100968824 /* Bullet.png */,
 				D395DD821810AAA100968824 /* Shield.png */,
 				D395DD831810AAA100968824 /* Ship1.png */,
 				D395DD841810AAA100968824 /* Ship2.png */,
 				D30E346E18107B86009684D1 /* Supporting Files */,
+				D37127261811CE550025DD8C /* BugScene.h */,
+				D37127271811CE550025DD8C /* BugScene.m */,
 			);
 			path = Disasteroids2;
 			sourceTree = "<group>";
@@ -274,7 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3EDE7F6181080F800E4045F /* DisasteroidsLayer.m in Sources */,
+				D3EDE7F6181080F800E4045F /* DisasteroidsScene.m in Sources */,
+				D37127281811CE550025DD8C /* BugScene.m in Sources */,
 				D30E347818107B86009684D1 /* AppDelegate.m in Sources */,
 				D30E347418107B86009684D1 /* main.m in Sources */,
 			);

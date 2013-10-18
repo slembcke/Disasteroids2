@@ -6,7 +6,7 @@
 //  Copyright 2013 Cocos2D. All rights reserved.
 //
 
-#import "DisasteroidsLayer.h"
+#import "DisasteroidsScene.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 
 enum Z_ORDER {
@@ -72,7 +72,6 @@ enum Z_ORDER {
 	if(_trackingTouch) return;
 	
 	for(UITouch *touch in touches){
-//		NSLog(@"TouchBegan %p", touch);
 		CGPoint pos = [self.parent convertTouchToNodeSpace:touch];
 		if(cpvnear(_center, pos, _radius)){
 			_trackingTouch = touch;
@@ -96,7 +95,6 @@ enum Z_ORDER {
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	for(UITouch *touch in touches){
-//		NSLog(@"TouchEnded %p", touch);
 		if(touch == _trackingTouch){
 			_trackingTouch = nil;
 			self.touchPosition = _center;
@@ -195,7 +193,7 @@ enum Z_ORDER {
 @end
 
 
-@implementation DisasteroidsLayer {
+@implementation DisasteroidsScene {
 	CCPhysicsNode *_physics;
 	
 	Ship *_ship;
@@ -209,17 +207,10 @@ enum Z_ORDER {
 {
 	if((self = [super init])){
 		self.userInteractionEnabled = YES;
+		self.multipleTouchEnabled = YES;
 	}
 	
 	return self;
-}
-
-+(CCScene *)scene
-{
-	CCScene *scene = [CCScene node];
-	[scene addChild:[[self alloc] init]];
-	
-	return scene;
 }
 
 -(void)onEnter

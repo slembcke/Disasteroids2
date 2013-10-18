@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface DisasteroidsLayer : CCLayer<CCPhysicsCollisionDelegate>
-
-+(CCScene *)scene;
+@interface DisasteroidsScene : CCScene<CCPhysicsCollisionDelegate>
 
 @end
