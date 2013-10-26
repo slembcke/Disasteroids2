@@ -111,11 +111,12 @@ enum Z_ORDER {
 
 
 @interface Ship : CCSprite
+@property(nonatomic, readonly) BOOL hasShield;
 @end
 
 
 @implementation Ship {
-
+	CCSprite *_shield;
 }
 
 -(id)init
@@ -130,13 +131,21 @@ enum Z_ORDER {
 		body.collisionType = @"ship";
 		self.physicsBody = body;
 		
-		CCSprite *shield = [CCSprite spriteWithFile:@"Shield.png"];
-		shield.position = self.anchorPointInPoints;
-		[self addChild:shield];
+		_shield = [CCSprite spriteWithFile:@"Shield.png"];
+		_shield.position = self.anchorPointInPoints;
+		[self addChild:_shield];
 	}
 	
 	return self;
 }
+
+-(void)takeDamage
+{
+	[_shield removeFromParent];
+	_shield = nil;
+}
+
+-(BOOL)hasShield {return (_shield != nil);}
 
 @end
 
@@ -146,16 +155,15 @@ enum Z_ORDER {
 
 @implementation Asteroid
 
-// TODO Scale is temporary.
 -(id)initWithScale:(float)scale
 {
 	if((self = [super initWithFile:@"Asteroid.png"])){
 		self.scale = scale;
 		
 		CGSize size = self.contentSize;
-		float radius = 0.85*scale*(size.width + size.height)/4.0;
+		float radius = 0.85*(size.width + size.height)/4.0;
 		
-		CCPhysicsBody *body = [CCPhysicsBody bodyWithCircleOfRadius:radius andCenter:ccpMult(self.anchorPointInPoints, scale)];
+		CCPhysicsBody *body = [CCPhysicsBody bodyWithCircleOfRadius:radius andCenter:self.anchorPointInPoints];
 		body.collisionCategories = @[@"asteroid"];
 		body.collisionMask = @[@"ship", @"bullet"];
 		body.collisionType = @"asteroid";
@@ -185,6 +193,8 @@ enum Z_ORDER {
 		body.collisionMask = @[@"asteroid"];
 		body.collisionType = @"bullet";
 		self.physicsBody = body;
+		
+		[self scheduleBlock:^(CCTimer *timer){[self removeFromParent];} delay:4.0];
 	}
 	
 	return self;
@@ -201,6 +211,9 @@ enum Z_ORDER {
 	NSMutableArray *_bullets;
 	
 	Joystick *_leftJoystick, *_rightJoystick;
+	
+	__weak UITouch *_rapidFireTouch;
+	__weak CCTimer *_rapidFireTimer;
 }
 
 -(id)init
@@ -225,35 +238,19 @@ enum Z_ORDER {
 	_leftJoystick = [[Joystick alloc] initWithCenter:JOYSTICK_LEFT_CENTER radius:JOYSTICK_RADIUS];
 	[_physics addChild:_leftJoystick z:Z_JOYSTICK];
 	
-	_ship = [[Ship alloc] init];
-	_ship.position = ccp(512, 384);
-	[_physics addChild:_ship z:Z_SHIP];
-	
-	_asteroids = [NSMutableArray array];
-	
-	CGSize size = [CCDirector sharedDirector].winSize;
-	for(int i=0; i<15; i++){
-		Asteroid *asteroid = [[Asteroid alloc] initWithScale:1.0];
-		asteroid.position = ccp(CCRANDOM_0_1()*size.width, CCRANDOM_0_1()*size.height);
-		
-		CGPoint randomOnUnitCircle = ccpNormalize(ccp(CCRANDOM_MINUS1_1(), CCRANDOM_MINUS1_1()));
-		asteroid.physicsBody.velocity = ccpMult(randomOnUnitCircle, 50);
-		asteroid.physicsBody.angularVelocity = CCRANDOM_MINUS1_1();
-		
-		[_physics addChild:asteroid z:Z_ASTEROID];
-		[_asteroids addObject:asteroid];
-	}
+	[self resetShip];
+	[self resetAsteroids];
 	
 	_bullets = [NSMutableArray array];
-	
-	[self scheduleUpdate];
 }
 
--(void)fireBullet
+-(void)fireBullet:(ccTime)delta
 {
+	CGPoint velocity = ccpAdd(_ship.physicsBody.velocity, ccpMult(ccpForAngle(-CC_DEGREES_TO_RADIANS(_ship.rotation)), 200.0));
+	
 	Bullet *bullet = [Bullet node];
-	bullet.position = _ship.position;
-	bullet.physicsBody.velocity = ccpAdd(_ship.physicsBody.velocity, ccpMult(ccpForAngle(-CC_DEGREES_TO_RADIANS(_ship.rotation)), 200.0));
+	bullet.position = ccpAdd(_ship.position, ccpMult(velocity, -delta));
+	bullet.physicsBody.velocity = velocity;
 	
 	[_physics addChild:bullet z:Z_BULLET];
 	[_bullets addObject:bullet];
@@ -261,7 +258,29 @@ enum Z_ORDER {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self fireBullet];
+	if(_rapidFireTouch == nil){
+		_rapidFireTouch = touches.anyObject;
+		
+		[_rapidFireTimer invalidate];
+		
+		_rapidFireTimer = [self scheduleBlock:^(CCTimer *timer){
+			[self fireBullet:timer.invokeTime - timer.scheduler.lastFixedUpdateTime];
+		} delay:0.0];
+		_rapidFireTimer.repeatCount = 2;
+		_rapidFireTimer.repeatInterval = 1.0/10.0;
+	}
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	for(UITouch *touch in touches){
+		if(touch == _rapidFireTouch){
+			_rapidFireTouch = nil;
+			
+			[_rapidFireTimer invalidate];
+			_rapidFireTimer = nil;
+		}
+	}
 }
 
 static void
@@ -288,7 +307,7 @@ Wrap(CCNode *node, CGSize size)
 	Wrap(_ship, [CCDirector sharedDirector].winSize);
 }
 
--(void)update:(ccTime)delta
+-(void)fixedUpdate:(ccTime)delta
 {
 	[self updateShip:delta];
 	
@@ -299,9 +318,41 @@ Wrap(CCNode *node, CGSize size)
 
 -(void)resetShip
 {
+	[_ship removeFromParent];
+	
+	_ship = [[Ship alloc] init];
 	_ship.position = ccp(512, 384);
-	_ship.rotation = 0;
-	_ship.physicsBody.velocity = CGPointZero;
+	[_physics addChild:_ship z:Z_SHIP];
+}
+
+-(CGPoint)randomPosition
+{
+	CGSize size = [CCDirector sharedDirector].winSize;
+	CGPoint ship = _ship.position;
+	
+	for(;;){
+		CGPoint position = ccp(CCRANDOM_0_1()*size.width, CCRANDOM_0_1()*size.height);
+		
+		// Don't return a position near the ship.
+		if(ccpDistance(ship, position) > 300.0) return position;
+	}
+}
+
+-(void)resetAsteroids
+{
+	_asteroids = [NSMutableArray array];
+	
+	for(int i=0; i<15; i++){
+		Asteroid *asteroid = [[Asteroid alloc] initWithScale:1.0];
+		asteroid.position = [self randomPosition];
+		
+		CGPoint randomOnUnitCircle = ccpNormalize(ccp(CCRANDOM_MINUS1_1(), CCRANDOM_MINUS1_1()));
+		asteroid.physicsBody.velocity = ccpMult(randomOnUnitCircle, 50);
+		asteroid.physicsBody.angularVelocity = CCRANDOM_MINUS1_1();
+		
+		[_physics addChild:asteroid z:Z_ASTEROID];
+		[_asteroids addObject:asteroid];
+	}
 }
 
 -(void)destroyAsteroid:(Asteroid *)deadAsteroid
@@ -326,6 +377,8 @@ Wrap(CCNode *node, CGSize size)
 			[_asteroids addObject:asteroid];
 		}
 	}
+	
+	if(_asteroids.count == 0) [self resetAsteroids];
 }
 
 -(void)destroyBullet:(Bullet *)bullet
@@ -336,18 +389,23 @@ Wrap(CCNode *node, CGSize size)
 
 //MARK: Collision Delegate methods:
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ship:(CCPhysicsBody *)shipBody asteroid:(CCPhysicsBody *)asteroidBody
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ship:(Ship *)ship asteroid:(Asteroid *)asteroid
 {
-	[self resetShip];
-	[self destroyAsteroid:asteroidBody.node];
+	if([ship hasShield]){
+		[ship takeDamage];
+	} else {
+		[self resetShip];
+	}
+	
+	[self destroyAsteroid:asteroid];
 	
 	return NO;
 }
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair asteroid:(CCPhysicsBody *)asteroidBody bullet:(CCPhysicsBody *)bulletBody
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair asteroid:(Asteroid *)asteroid bullet:(Bullet *)bullet
 {
-	[self destroyAsteroid:asteroidBody.node];
-	[self destroyBullet:bulletBody.node];
+	[self destroyAsteroid:asteroid];
+	[self destroyBullet:bullet];
 	
 	return NO;
 }
